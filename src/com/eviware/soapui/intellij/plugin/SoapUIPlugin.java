@@ -81,7 +81,8 @@ public class SoapUIPlugin implements ProjectComponent {
     private static Workspace workspace;
     public static final String LOG_WINDOW_ID = "soapUI Log";
     private JPanel overviewPanel;
-    private static final String DEFAULT_WORKSPACE_FILE = "intellij-soapui-workspace.xml";
+    private static final String DEFAULT_WORKSPACE_FILE = ".soapui/intellij-plugin/intellij-soapui-workspace.xml";
+    private static final String DEFAULT_SETTINGS_FILE = ".soapui/soapui-settings.xml";
     private static SwingSoapUICore soapUICore;
     private SwingDialogs swingDialogs;
     private SwingFileDialogs swingFileDialogs;
@@ -192,10 +193,10 @@ public class SoapUIPlugin implements ProjectComponent {
     }
 
     private void initSoapUICore() {
-        soapUICore = new SwingPluginSoapUICore() {
+        soapUICore = new SwingPluginSoapUICore(System.getProperty( "user.home", "." ), DEFAULT_SETTINGS_FILE) {
             @Override
             protected String importSettingsOnStartup(String fileName) throws Exception {
-// dont show the popup..
+                // dont show the popup..
                 return fileName;
             }
         };
