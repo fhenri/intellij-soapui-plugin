@@ -82,7 +82,7 @@ public class SoapUIPlugin implements ProjectComponent {
     public static final String LOG_WINDOW_ID = "soapUI Log";
     private JPanel overviewPanel;
     private static final String DEFAULT_WORKSPACE_FILE = ".soapui/intellij-plugin/intellij-soapui-workspace.xml";
-    private static final String DEFAULT_SETTINGS_FILE = ".soapui/soapui-settings.xml";
+    private static final String DEFAULT_SETTINGS_FILE = "/Users/fhenri/.soapui/soapui-settings.xml";
     private static SwingSoapUICore soapUICore;
     private SwingDialogs swingDialogs;
     private SwingFileDialogs swingFileDialogs;
